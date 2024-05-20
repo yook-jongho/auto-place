@@ -1,8 +1,7 @@
 import React from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import logo from "./logo.svg";
-import "./App.css";
-import { LogInPage } from "./Pages/LogIn/LogInPage";
+import { LogInPage } from "./pages/LogIn/LogInPage";
 
 const Router = () => {
     return (
@@ -13,8 +12,9 @@ const Router = () => {
         </HashRouter>
     );
 };
+
 function App() {
-    return <LogInPage />;
+    return <Router></Router>;
 }
 
 export default App;

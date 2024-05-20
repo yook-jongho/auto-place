@@ -1,5 +1,5 @@
 {
-    "name": "medium-electron-react",
+    "name": "testproject",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -45,10 +45,10 @@
             "last 1 safari version"
         ]
     },
+    "main": "public/Main.js",
+    "homepage": "./",
     "devDependencies": {
         "electron": "^30.0.6",
         "electron-builder": "^24.13.3"
-    },
-    "main": "public/Main.js",
-    "homepage": "./"
+    }
 }
