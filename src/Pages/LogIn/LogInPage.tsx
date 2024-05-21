@@ -1,8 +1,13 @@
+import icon from "../../assets/icon.svg";
+
 export const LogInPage = () => {
     return (
         <div>
             <section className="w-2/5 h-90 min-h-700 p-14 flex flex-col justify-between">
-                <span>매점의 눈</span>
+                <div className="flex flex-row gap-2">
+                    <img src={icon} />
+                    <span>매점의 눈</span>
+                </div>
                 <form className=" w-340 flex flex-col gap-3">
                     <span className="mb-6 text-3xl font-semibold">로그인</span>
                     <input
@@ -15,7 +20,10 @@ export const LogInPage = () => {
                         placeholder="비밀번호를 입력하세요."
                         className="py-2 pl-4 text-sm border border-solid border-black"
                     />
-                    <button className="h-10 bg-btn text-white"> → </button>
+                    <button className="h-10 bg-btn text-2xl text-white">
+                        {" "}
+                        →{" "}
+                    </button>
                 </form>
                 <div>
                     <span>계정이 없으신가요? </span>
