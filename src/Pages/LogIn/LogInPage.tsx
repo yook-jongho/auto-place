@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import icon from "../../assets/icon.svg";
 
 export const LogInPage = () => {
+    const navigator = useNavigate();
+    const movePage = () => {
+        navigator("/signup");
+    };
     return (
         <div>
             <section className="w-2/5 h-90 min-h-700 p-14 flex flex-col justify-between">
@@ -21,13 +26,14 @@ export const LogInPage = () => {
                         className="py-2 pl-4 text-sm border border-solid border-black"
                     />
                     <button className="h-10 bg-btn text-2xl text-white">
-                        {" "}
-                        →{" "}
+                        →
                     </button>
                 </form>
                 <div>
                     <span>계정이 없으신가요? </span>
-                    <span className="text-skyblue underline">회원가입</span>
+                    <span className="text-skyblue underline" onClick={movePage}>
+                        회원가입
+                    </span>
                 </div>
             </section>
         </div>
