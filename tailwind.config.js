@@ -4,6 +4,7 @@ module.exports = {
     theme: {
         extend: {
             width: {
+                hr: "2px",
                 340: "340px",
                 450: "450px",
                 480: "480px",
@@ -14,12 +15,17 @@ module.exports = {
                 700: "700px",
             },
             spacing: {
+                340: "340px",
+                400: "400px",
+                450: "450px",
+                480: "480px",
+                600: "600px",
                 700: "700px",
             },
             colors: {
                 btn: "rgb(66, 66, 66)",
                 skyblue: "#00A3FF",
-                input: "#DBDBDB",
+                gray: "#DBDBDB",
             },
         },
     },
