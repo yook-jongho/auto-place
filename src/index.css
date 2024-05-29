@@ -20,3 +20,13 @@ code {
     min-width: 960px;
     height: 100dvh;
 }
+
+tr,
+td {
+    border-bottom: 1px solid #dbdbdb;
+    padding: 10px;
+}
+
+tbody > tr:hover {
+    background-color: #f4f4f4;
+}
