@@ -3,8 +3,11 @@ import icon from "../../assets/icon.svg";
 
 export const LogInPage = () => {
     const navigator = useNavigate();
-    const movePage = () => {
+    const moveSignUp = () => {
         navigator("/signup");
+    };
+    const moveMain = () => {
+        navigator("/main");
     };
     return (
         <div>
@@ -19,19 +22,27 @@ export const LogInPage = () => {
                         type="email"
                         placeholder="아이디를 입력하세요."
                         className="py-2 pl-4 text-sm border border-solid border-black"
+                        required
                     />
                     <input
                         type="password"
                         placeholder="비밀번호를 입력하세요."
                         className="py-2 pl-4 text-sm border border-solid border-black"
+                        required
                     />
-                    <button className="h-10 bg-btn text-2xl text-white">
+                    <button
+                        className="h-10 bg-btn text-2xl text-white"
+                        onClick={moveMain}
+                    >
                         →
                     </button>
                 </form>
                 <div>
                     <span>계정이 없으신가요? </span>
-                    <span className="text-skyblue underline" onClick={movePage}>
+                    <span
+                        className="text-skyblue underline"
+                        onClick={moveSignUp}
+                    >
                         회원가입
                     </span>
                 </div>
