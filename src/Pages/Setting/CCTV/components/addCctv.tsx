@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { addDevices } from "../../../../services/api";
 interface Props {
     onCctvUpdate: () => void;
 }
@@ -20,17 +21,8 @@ export const AddCctv: React.FC<Props> = ({ onCctvUpdate }) => {
             username,
             password,
         };
-        try {
-            const response = await window.electron.addCctvDevice(
-                "CCTV",
-                newDevice
-            );
-            console.log("Response:", response);
-            if (response.status === "success") onCctvUpdate();
-            else console.log("update fail");
-        } catch (error) {
-            console.error("Failed to add CCTV device:", error);
-        }
+        await addDevices(newDevice);
+        onCctvUpdate();
     };
 
     return (

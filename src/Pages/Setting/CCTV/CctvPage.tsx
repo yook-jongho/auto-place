@@ -4,6 +4,7 @@ import { SideLayout } from "../components/SideLayout";
 import { AddCctv } from "./components/addCctv";
 import { SetCctv } from "./components/setCctv";
 import { CCTV } from "../../../interface/interface";
+import { loadDevices } from "../../../services/api";
 
 interface Action {
     add: boolean;
@@ -37,17 +38,12 @@ export const CctvPage = () => {
         setting: false,
     });
 
-    //todo: 비동기 처리 로직 service로 분리
-    const loadDevices = async () => {
-        try {
-            const response = await window.electron.loadDevices("CCTV");
-            setCctvList(response.data.device);
-        } catch (error) {
-            console.error("Failed to check/create JSON file:", error);
-        }
+    const fetchDevices = async () => {
+        const devices = await loadDevices();
+        setCctvList(devices || []);
     };
     useEffect(() => {
-        loadDevices();
+        fetchDevices();
     }, []);
 
     const tableClick = () => {
@@ -90,7 +86,7 @@ export const CctvPage = () => {
                 </section>
                 <SideLayout isVisible={isVisible}>
                     {crntAct.add === true ? (
-                        <AddCctv onCctvUpdate={loadDevices} />
+                        <AddCctv onCctvUpdate={fetchDevices} />
                     ) : (
                         <SetCctv observe={crntDevice} />
                     )}
