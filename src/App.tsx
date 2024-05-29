@@ -7,9 +7,6 @@ import { CctvPage } from "./pages/Setting/CCTV/CctvPage";
 import { GeneralPage } from "./pages/Setting/General/GeneralPage";
 import { AirconPage } from "./pages/Setting/Aircon/AirconPage";
 import { DoorlockPage } from "./pages/Setting/Doorlock/DoorlockPage";
-import { createHashHistory } from "history";
-
-const hashHistory = createHashHistory();
 
 const Router = () => {
     return (
