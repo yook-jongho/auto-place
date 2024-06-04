@@ -5,4 +5,6 @@ contextBridge.exposeInMainWorld("electron", {
     addCctvDevice: (device, info) =>
         ipcRenderer.invoke("add-cctv-device", device, info),
     loadDevices: (device) => ipcRenderer.invoke("load-devices", device),
+    updateDevice: (device, id, info) =>
+        ipcRenderer.invoke("update-device", device, id, info),
 });
