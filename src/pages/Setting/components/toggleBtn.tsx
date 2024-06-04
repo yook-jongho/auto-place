@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 interface Props {
     flag: boolean;
+    setFlag: (flag: boolean) => void;
 }
 
-const ToggleButton = ({ flag }: Props) => {
+const ToggleButton = ({ flag, setFlag }: Props) => {
     const [isActive, setIsActive] = useState(flag);
 
     useEffect(() => {
@@ -11,6 +12,7 @@ const ToggleButton = ({ flag }: Props) => {
     }, [flag]);
     const toggle = () => {
         setIsActive(!isActive);
+        setFlag(!isActive);
     };
 
     return (

@@ -13,12 +13,12 @@ interface Action {
 
 interface CctvProps {
     devices: CCTV[];
-    crntDevice: (observe: boolean) => void;
+    crntDevice: (crntCCTV: CCTV) => void;
 }
 
 const CctvList = ({ devices, crntDevice }: CctvProps) => {
     const renderList = devices.map((item, idx) => (
-        <tr key={idx} onClick={() => crntDevice(item.observe)}>
+        <tr key={idx} onClick={() => crntDevice(item)}>
             <td>{idx + 1}</td>
             <td>{item.name}</td>
             <td>{item.id}</td>
@@ -31,7 +31,14 @@ const CctvList = ({ devices, crntDevice }: CctvProps) => {
 //todo 삭제 기능 추가 필요
 export const CctvPage = () => {
     const [cctvList, setCctvList] = useState<CCTV[]>([]);
-    const [crntDevice, setCrntDevice] = useState(false);
+    const [crntDevice, setCrntDevice] = useState<CCTV>({
+        id: "",
+        observe: false,
+        name: "",
+        ip: "",
+        username: "",
+        password: "",
+    });
     const [isVisible, setIsVisible] = useState(false);
     const [crntAct, setCrntAct] = useState<Action>({
         add: true,
@@ -88,7 +95,10 @@ export const CctvPage = () => {
                     {crntAct.add === true ? (
                         <AddCctv onCctvUpdate={fetchDevices} />
                     ) : (
-                        <SetCctv observe={crntDevice} />
+                        <SetCctv
+                            onCctvUpdate={fetchDevices}
+                            device={crntDevice}
+                        />
                     )}
                 </SideLayout>
             </div>
