@@ -11,7 +11,6 @@ export const SetAircon = ({ flag }: AutoAircon) => {
             </span>
             <div className="flex flex-row justify-between mb-10">
                 <span className="font-semibold">에어컨 자동제어</span>
-                <ToggleButton flag={flag} />
             </div>
             <div className="flex flex-col">
                 <div className="flex flex-row justify-between mb-10 items-center">

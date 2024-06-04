@@ -14,7 +14,6 @@ export const SetDoorLock = ({ flag }: DoorLockSetting) => {
                 <span className="font-semibold">
                     임시 비밀번호 설정 링크 보내기
                 </span>
-                <ToggleButton flag={flag} />
             </div>
             <div className="flex flex-row justify-between content-center">
                 <span className="block pt-2">
