@@ -1,10 +1,10 @@
 export interface CCTV {
-    id: String;
+    id: string;
     observe: boolean;
     name: string;
-    ip: String;
-    username: String;
-    password: String;
+    ip: string;
+    username: string;
+    password: string;
 }
 
 export interface Aircon {
@@ -36,6 +36,11 @@ declare global {
             ) => Promise<{ status: string; data?: any; error?: string }>;
             loadDevices: (
                 device: string
+            ) => Promise<{ status: string; data?: any; error?: string }>;
+            updateDevice: (
+                device: string,
+                id: string,
+                info: CCTV
             ) => Promise<{ status: string; data?: any; error?: string }>;
         };
     }
