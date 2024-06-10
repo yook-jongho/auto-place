@@ -7,4 +7,6 @@ contextBridge.exposeInMainWorld("electron", {
     loadDevices: (device) => ipcRenderer.invoke("load-devices", device),
     updateDevice: (device, id, info) =>
         ipcRenderer.invoke("update-device", device, id, info),
+    deleteDevice: (device, id) =>
+        ipcRenderer.invoke("delete-device", device, id),
 });
