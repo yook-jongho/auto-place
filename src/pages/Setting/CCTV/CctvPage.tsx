@@ -4,7 +4,8 @@ import { SideLayout } from "../components/SideLayout";
 import { AddCctv } from "./components/addCctv";
 import { SetCctv } from "./components/setCctv";
 import { CCTV } from "../../../interface/interface";
-import { loadDevices } from "../../../services/api";
+import { deleteDevice, loadDevices } from "../../../services/api";
+import { ReactComponent as Trash } from "../../../assets/trash.svg";
 
 interface Action {
     add: boolean;
@@ -17,11 +18,21 @@ interface CctvProps {
 }
 
 const CctvList = ({ devices, crntDevice }: CctvProps) => {
+    const trashClick = async (id: string) => {
+        await deleteDevice("CCTV", id);
+    };
+
     const renderList = devices.map((item, idx) => (
         <tr key={idx} onClick={() => crntDevice(item)}>
-            <td>{idx + 1}</td>
+            <td className="pr-10 text-center">{idx + 1}</td>
             <td>{item.name}</td>
             <td>{item.id}</td>
+            <td>
+                <Trash
+                    onClick={() => trashClick(item.id)}
+                    className="hover:stroke-[#FF0000]"
+                />
+            </td>
         </tr>
     ));
 
@@ -49,9 +60,10 @@ export const CctvPage = () => {
         const devices = await loadDevices();
         setCctvList(devices || []);
     };
+
     useEffect(() => {
         fetchDevices();
-    }, []);
+    }, [cctvList]);
 
     const tableClick = () => {
         if (!isVisible) setIsVisible(true);
@@ -67,13 +79,13 @@ export const CctvPage = () => {
         <div className="flex flex-col gap-20 m-auto p-20 content-center items-center justify-center">
             <Header name="CCTV 설정" />
             <div className="flex flex-row gap-28 h-700 m-auto">
-                <section className="w-400">
+                <section className="w-[520px]">
                     <table className="w-full mb-6">
                         <thead>
                             <tr className="font-semibold">
-                                <td className="pr-10">순서</td>
+                                <td className="pr-10 text-center">순서</td>
                                 <td className="pr-32">이름</td>
-                                <td>디바이스 ID</td>
+                                <td className="pr-14">디바이스 ID</td>
                             </tr>
                         </thead>
                         {/* <tbody onClick={tableClick}>{AirconList}</tbody> */}
