@@ -42,6 +42,10 @@ declare global {
                 id: string,
                 info: CCTV
             ) => Promise<{ status: string; data?: any; error?: string }>;
+            deleteDevice: (
+                device: string,
+                id: string
+            ) => Promise<{ status: string; data?: any; error?: string }>;
         };
     }
 }

@@ -34,3 +34,12 @@ export const updateDevices = async (
         console.error("Failed to add CCTV device:", error);
     }
 };
+
+export const deleteDevice = async (device: string, id: string) => {
+    try {
+        const response = await window.electron.deleteDevice("CCTV", id);
+        if (response.status === "success") alert("삭제되었습니다");
+    } catch (error) {
+        console.log(error);
+    }
+};
