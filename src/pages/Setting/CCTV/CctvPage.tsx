@@ -19,7 +19,9 @@ interface CctvProps {
 
 const CctvList = ({ devices, crntDevice }: CctvProps) => {
     const trashClick = async (id: string) => {
-        await deleteDevice("CCTV", id);
+        // eslint-disable-next-line no-restricted-globals
+        if (confirm("정말로 삭제하시겠습니까?")) await deleteDevice("CCTV", id);
+        else alert("취소되었습니다");
     };
 
     const renderList = devices.map((item, idx) => (
@@ -57,7 +59,7 @@ export const CctvPage = () => {
     });
 
     const fetchDevices = async () => {
-        const devices = await loadDevices();
+        const devices = await loadDevices("CCTV");
         setCctvList(devices || []);
     };
 
