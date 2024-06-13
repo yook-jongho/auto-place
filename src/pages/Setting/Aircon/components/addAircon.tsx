@@ -1,4 +1,11 @@
-export const AddAircon = () => {
+import React, { useState } from "react";
+import { addDevices } from "../../../../services/api";
+interface Props {
+    onAirconUpdate: () => void;
+}
+
+//todo: 에어컨 api 요청 필요
+export const AddAircon: React.FC<Props> = ({ onAirconUpdate }) => {
     return (
         <>
             <div className="flex flex-row justify-between mb-10">

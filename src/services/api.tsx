@@ -1,8 +1,8 @@
 import { CCTV } from "../interface/interface";
 
-export const loadDevices = async () => {
+export const loadDevices = async (device: string) => {
     try {
-        const response = await window.electron.loadDevices("CCTV");
+        const response = await window.electron.loadDevices(device);
         return response.data.device;
     } catch (error) {
         console.error(error);

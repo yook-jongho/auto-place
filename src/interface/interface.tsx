@@ -8,12 +8,17 @@ export interface CCTV {
 }
 
 export interface Aircon {
-    id: String;
-    name: String;
+    auto: boolean;
+    id: string;
+    name: string;
     automation: boolean;
     condition: {
-        temperature: Number;
-        compare: String;
+        temperature: number;
+        compare: string;
+    };
+    active: {
+        before: number;
+        after: number;
     };
 }
 
