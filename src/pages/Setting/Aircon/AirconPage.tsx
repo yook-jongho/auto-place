@@ -100,8 +100,7 @@ export const AirconPage = () => {
                     {crntAct.add === true ? (
                         <AddAircon onAirconUpdate={fetchDevices} />
                     ) : (
-                        <></>
-                        // <SetAircon flag={crntDevice} />
+                        <SetAircon device={crntDevice} />
                     )}
                 </SideLayout>
             </div>
