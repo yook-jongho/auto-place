@@ -1,4 +1,4 @@
-import { CCTV } from "../interface/interface";
+import { Aircon, CCTV } from "../interface/interface";
 
 export const loadDevices = async (device: string) => {
     try {
@@ -9,9 +9,12 @@ export const loadDevices = async (device: string) => {
     }
 };
 
-export const addDevices = async (newDevice: CCTV) => {
+export const addDevices = async (
+    category: string,
+    newDevice: CCTV | Aircon
+) => {
     try {
-        const response = await window.electron.addCctvDevice("CCTV", newDevice);
+        const response = await window.electron.addDevice(category, newDevice);
         console.log(response);
     } catch (error) {
         console.error("Failed to add CCTV device:", error);
@@ -20,16 +23,16 @@ export const addDevices = async (newDevice: CCTV) => {
 
 export const updateDevices = async (
     device: string,
-    newDevice: CCTV,
+    newDevice: CCTV | Aircon,
     id: string
 ) => {
     try {
         const response = await window.electron.updateDevice(
-            "CCTV",
+            device,
             id,
             newDevice
         );
-        if (response.status === "success") console.log("성공");
+        if (response.status === "success") return response.status;
     } catch (error) {
         console.error("Failed to add CCTV device:", error);
     }

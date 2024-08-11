@@ -21,7 +21,7 @@ export const AddCctv: React.FC<Props> = ({ onCctvUpdate }) => {
             username,
             password,
         };
-        await addDevices(newDevice);
+        await addDevices("CCTV", newDevice);
         onCctvUpdate();
     };
 

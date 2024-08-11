@@ -8,7 +8,6 @@ export interface CCTV {
 }
 
 export interface Aircon {
-    auto: boolean;
     id: string;
     name: string;
     automation: boolean;
@@ -31,9 +30,9 @@ declare global {
                 data?: any;
                 error?: string;
             }>;
-            addCctvDevice: (
-                device: String,
-                info: CCTV
+            addDevice: (
+                device: string,
+                info: CCTV | Aircon
             ) => Promise<{ status: string; data?: any; error?: string }>;
             addAirconDevice: (
                 device: String,
@@ -45,7 +44,7 @@ declare global {
             updateDevice: (
                 device: string,
                 id: string,
-                info: CCTV
+                info: CCTV | Aircon
             ) => Promise<{ status: string; data?: any; error?: string }>;
             deleteDevice: (
                 device: string,

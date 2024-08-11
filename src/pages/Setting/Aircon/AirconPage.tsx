@@ -31,7 +31,6 @@ const AirconList = ({ devices, crntDevice }: Props) => {
 export const AirconPage = () => {
     const [airconList, setAirconList] = useState<Aircon[]>([]);
     const [crntDevice, setCrntDevice] = useState<Aircon>({
-        auto: false,
         id: "",
         name: "",
         automation: false,
