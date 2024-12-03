@@ -1,13 +1,100 @@
-## 실행
-# 공통
-클론 이후,
-1. 터미널에서 해당 폴더 위치에서 yarn init 이후 게속 엔터
-2. yarn install
-3. package.json 파일에서 아래 구문 수정
-- 멕북
-  "react-start": "BROWSER=none yarn start",
-  "electron-start": "ELECTRON_START_URL=http://localhost:3000 electron ."
-  
-- 윈도우
-  "set BROWSER=none && yarn start"
-  "set ELECTRON_START_URL=http://localhost:3000 && electron ."
+# **기기 설정 데스크톱 앱** 🚀
+
+> Electron과 React로 개발한 기기 설정 데스크톱 애플리케이션
+
+---
+
+## **프로젝트 개요** 📋
+
+최근 인건비 상승과 경기 침체로 다양한 업종에서 자동화 도입이 가속화되고 있습니다. 키오스크, 티오더, 로봇 서빙기 등 단순 자동화 기술들이 등장했지만, 여전히 오프라인 매장 운영에는 비효율성이 존재합니다.
+
+예를 들어, 한 파티룸 점주가 전기세 70만 원을 낭비했던 사례처럼, 기기의 오작동과 미작동 문제는 심각한 비용 부담을 초래합니다. 이러한 문제를 해결하기 위해 우리는 완전 원격 무인 매장을 위한 자동화 솔루션을 개발합니다.
+
+이 프로젝트는 IoT와 자동화 기술을 통해 매장 운영을 최적화하고 비용을 절감하며 추가 매출 기회를 창출하는 것을 목표로 합니다.
+
+### **프로젝트명:**
+
+기기 제어 데스크톱 앱 개발
+
+### **기간:**
+
+2024.05 ~ 2024.06
+
+### **참여 인원:**
+
+2명
+
+### **설명:**
+
+-   **주요 목적**:
+
+    -   기기가 예약된 시간에만 작동하도록 설정.
+    -   비활성 시간에 주기적으로 기기를 꺼서 에너지 절약.
+
+-   **핵심 기능**:
+    -   사용자 로컬의 JSON 파일을 기반으로 설정 데이터 관리.
+    -   예약된 시간에만 기기를 작동시키는 스케줄 기능.
+    -   비활성 시간에 기기를 주기적으로 종료하는 자동화 기능.
+
+---
+
+## **주요 기능** 💡
+
+1. **기기 설정 관리**
+
+    - 로컬 JSON 파일을 통해 기기 설정 데이터를 읽고 저장.
+    - 에어컨: 온도 조절 및 예약 시간에 맞춰 ON/OFF 시간 조절
+
+2. **스케줄 기반 작동**
+
+    - 예약된 시간에 기기가 자동으로 켜지고 작동.
+
+3. **비활성 시간 자동 종료**
+    - 비활성 시간에 기기를 주기적으로 종료하여 에너지 소비 절약.
+
+---
+
+## **기술 환경** ⚙️
+
+-   React
+-   TypeScript
+-   TailwindCSS
+
+-   Electron
+-   Electron IPC API
+
+---
+
+## **설치 및 실행 방법** 🚀
+
+1. **저장소 클론**
+    ```bash
+    git clone https://github.com/yook-jongho/auto-place
+    ```
+
+-   클론 이후,
+    1. 터미널에서 해당 폴더 위치에서 yarn init 이후 게속 엔터
+    2. yarn install
+    3. package.json 파일에서 아래 구문 수정
+-   멕북
+    ```
+      "react-start": "BROWSER=none yarn start",
+      "electron-start": "ELECTRON_START_URL=http://localhost:3000 electron ."
+    ```
+-   윈도우
+    ```
+      "set BROWSER=none && yarn start"
+      "set ELECTRON_START_URL=http://localhost:3000 && electron ."
+    ```
+
+2. **의존성 설치**
+
+    ```bash
+    npm install
+    ```
+
+3. **애플리케이션 실행**
+    ```bash
+    npm run start
+    npm run electron-start
+    ```
